@@ -1,0 +1,14 @@
+//
+// Created by ham on 2024/11/27.
+//
+
+#ifndef HERO_CHASSIS_CONTROLLER_HERO_CHASSIS_CONTROLLER_H
+#define HERO_CHASSIS_CONTROLLER_HERO_CHASSIS_CONTROLLER_H
+
+
+class hero_chassis_controller {
+
+};
+
+
+#endif //HERO_CHASSIS_CONTROLLER_HERO_CHASSIS_CONTROLLER_H
