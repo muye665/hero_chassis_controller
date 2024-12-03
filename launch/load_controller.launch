@@ -1,0 +1,15 @@
+<launch>
+
+    <!-- 加载 controllers.yaml 文件 -->
+    <rosparam file="$(find hero_chassis_controller)/config/controllers.yaml" command="load"/>
+
+    <!-- 使用 controller_manger 加载插件 -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+        controller/hero_chassis_controller
+        controller/joint_state_controller
+  "/>
+    <rosparam file="$(find hero_chassis_controller)/config/pid.yaml" command="load" />
+
+    <node name="keyboard_control" pkg="hero_chassis_controller" type="keyboard_control" output="screen"/>
+</launch>
