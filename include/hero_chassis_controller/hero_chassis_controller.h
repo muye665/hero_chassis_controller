@@ -10,6 +10,8 @@
 #include <geometry_msgs/Twist.h>
 #include <control_toolbox/pid.h>
 #include <sensor_msgs/JointState.h>
+#include <tf/transform_broadcaster.h>
+#include <tf/transform_listener.h>
 
 namespace hero_chassis_controller {
 class HeroChassisController : public controller_interface::Controller<hardware_interface::EffortJointInterface> {
@@ -37,13 +39,21 @@ public:
 
     ros::Subscriber joint_state_sub;
     ros::Subscriber cmd_vel_sub_;
-
-    ros::Time last_cmd_time_;
+    ros::Publisher odom_pub_;
+    tf::TransformBroadcaster odom_broadcaster_;  //  创建tf广播器
+    tf::TransformListener listener_;
 
 private:
+    std::string frame_;
+    ros::Time current_time_ = ros::Time::now();
+    ros::Time last_time_ = ros::Time::now();
+    ros::Duration period_;
+    double x_ = -0.003691;  // 小车base坐标轴原点相对于odom的位置
+    double y_ = -0.001885;
+    double th_ = 0.0;
     double wheel_radius_;  // 车轮半径
-    double chassis_width_;  // 底盘宽度
-    double chassis_length_;  // 底盘长度
+    double track_;  // 底盘宽度
+    double wheelbase_;  // 底盘长度
     double back_left_vel_=0.0;
     double front_left_vel_=0.0;
     double back_right_vel_=0.0;

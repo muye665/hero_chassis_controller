@@ -11,5 +11,5 @@
   "/>
     <rosparam file="$(find hero_chassis_controller)/config/pid.yaml" command="load" />
 
-    <node name="keyboard_control" pkg="hero_chassis_controller" type="keyboard_control" output="screen"/>
+    <node name="keyboard_publisher" pkg="hero_chassis_controller" type="keyboard_publisher" output="screen"/>
 </launch>

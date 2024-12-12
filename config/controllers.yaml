@@ -1,9 +1,14 @@
 controller:
   hero_chassis_controller:
     type: hero_chassis_controller/HeroChassisController
-    wheel_radius: 0.1
-    chassis_width: 0.5
-    chassis_length: 0.5
+    wheel_radius: 0.07625
+    track: 0.4
+    wheelbase: 0.4
+    wheel_offset_: -0.068374
+    max_effort: 5
+    max_velocity: 50
+#    frame: "odom"
+    frame: "base_link"
 
   joint_state_controller:
     type: joint_state_controller/JointStateController
