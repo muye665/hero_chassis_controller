@@ -4,9 +4,13 @@ controller:
     wheel_radius: 0.07625
     track: 0.4
     wheelbase: 0.4
-    wheel_offset_: -0.068374
+#    wheel_offset_: -0.068374
     max_effort: 5
     max_velocity: 50
+#    max_acceleration: 0.5 # m/s^2
+    max_power: 100
+    k_1: 0.5
+    k_2: 0.5
 #    frame: "odom"
     frame: "base_link"
 
